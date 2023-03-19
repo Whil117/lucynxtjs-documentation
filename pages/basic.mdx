@@ -1,0 +1,108 @@
+# Basic Features
+
+Lucy Nxtjs was created for easy component creation, Which means that lucy is like using native html but on steroids
+
+## Normally
+
+you normally use a tag html such: P, span, and more for write a text
+
+```html
+<div class="pt-6 md:p-8 text-center md:text-left space-y-4">
+  <p class="text-lg font-medium">Digital product and brand agency</p>
+</div>
+```
+
+but if you want to change the style, you need to create a css file and with the className tag declare all the props, this is ok. but it is slow, because you need to create for each page, component and app, a style class.
+
+and you get this code
+
+```html
+<div class=`${isStatus ? "space-y-4" : "md:p-8 "} ${isStatus ? "space-y-4" : "md:p-8 "} ${isStatus ? "space-y-4" : "md:p-8 "} ${isColor ? "color-red" : "color-green"}pt-6 md:p-8 text-center md:text-left ${IsError ? "space-y-4" : ""}`>
+  <p class="text-lg font-medium">Digital product and brand agency</p>
+</div>
+```
+
+A bunch of conditionals in one line of string code and is more difficult program.
+
+## AtomText
+
+You can create a text using AtomText and with property called **customCSS**. recive a function. and you can declare your custom style
+
+```js
+import { AtomText } from "lucy-nxtjs";
+import { css } from "@emotion/react";
+
+<AtomText
+  as="h1"
+  maxWidth="60%"
+  customCSS={() => css`
+    font-family: Graphik Web;
+    font-weight: 700;
+    font-size: 82px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    line-height: 86px;
+    @media (max-width: 980px) {
+      width: auto;
+      max-width: max-content;
+    }
+    ${isStatusSuccessfull &&
+    css`
+      background-color: green;
+    `}
+    ${isError &&
+    css`
+      color: red;
+    `}
+  `}
+>
+  Digital product and brand agency
+</AtomText>;
+```
+
+### What? Why a function?
+
+well, when you have a lot of conditionals in your code and your style is more complex, is easier create a function and return a custom Style conditional
+
+```js
+import { AtomText } from "lucy-nxtjs";
+import { css } from "@emotion/react";
+
+type ContextStyle = {
+  status: "success" | "warning" | "error",
+};
+
+const styleKey = {
+  success: css`
+    background-color: green;
+  ${isFinish &&
+    css`
+      transition:....;
+    `}
+    ${isKey &&
+    css`
+      color: ##abdbe3
+    `}
+  `,
+  warning: css`
+    background-color: yellow;
+  `,
+  error: css`
+    background-color: red;
+  `,
+};
+
+const styleText = (context:ContextStyle) => styleKey[context.status]
+
+//////// outside render ///////
+
+<AtomText
+  as="h1"
+  maxWidth="60%"
+  customCSS={() => styleText(...context)}
+>
+  Digital product and brand agency
+</AtomText>;
+```
+
+This is easier understand, and using typescript you can know if you have a error with your styles and avoid hours of debugging
