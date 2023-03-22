@@ -1,0 +1,175 @@
+# Components
+
+Exist a lot of components for you. You can combine with other atoms without problems.
+All Components has the same props if you used html only. But with new properties such:
+
+CustomCSS, customCSSLabel, customCSSOption, customCSSError, css.
+
+These properties recives a function and should return a css
+
+You can use function css from Emotion
+
+```js
+import { css } from "@emotion/react";
+```
+
+## AtomText
+
+It's a great component because you have the typical properties for example: width, textAlign, textDecoration and more as params. This Component contains customCSS if you want to more customization
+
+```javascript
+<AtomText
+  customCSS={(css) => css`
+    background-color: red;
+  `}
+>
+  Hello Lucy
+</AtomText>
+```
+
+export const ExampleTextAtom = () => {
+return (
+
+<AtomText
+customCSS={(css) => css`    background-color: red;
+ `}
+
+> Hello Lucy
+
+</AtomText>
+) };
+
+<ExampleTextAtom />
+
+## AtomButton
+
+My favorite component, because has some improviments. When you have a background color. and this color is awful with the text button, AtomButton has a function that takes backgroundColor, backgroundLinearGradient and convert if the color is black or white
+
+```js
+<AtomButton
+  isFocus
+  backgroundLinearGradient={{
+    rotate: "315deg",
+    secondary: "#07deff",
+    primary: "#0f97ff",
+  }}
+  padding="10px 15px"
+>
+  Button example
+</AtomButton>
+```
+
+import { AtomButton,AtomWrapper, AtomText } from "lucy-nxtjs";
+
+export const Counter = () => {
+
+return (
+
+<AtomWrapper height="auto" flexDirection="row" gap="10px" justifyContent="flex-start" flexWrap="wrap">
+
+<AtomButton
+
+isFocus
+backgroundLinearGradient={{
+    rotate: "315deg",
+    secondary: "#07deff",
+    primary: "#0f97ff",
+  }}
+padding="10px 15px"
+
+> Button example
+
+</AtomButton>
+<AtomButton
+
+isFocus
+backgroundLinearGradient={{
+    rotate: "315deg",
+       secondary: "#76f66a",
+          primary: "#76f6",
+  }}
+padding="10px 15px"
+
+> Button example
+
+</AtomButton>
+<AtomButton
+
+isFocus
+backgroundColor="#e92929"
+padding="10px 15px"
+
+> Button example
+
+</AtomButton>
+<AtomButton
+
+isFocus
+backgroundColor="#07deff"
+padding="10px 15px"
+
+> Button example
+
+</AtomButton>
+<AtomButton
+
+isFocus
+backgroundColor="#eadc0c"
+padding="10px 15px"
+
+> Button example
+
+</AtomButton>
+<AtomButton
+
+isFocus
+backgroundColor="#16ec2b"
+padding="10px 15px"
+
+> Button example
+
+</AtomButton>
+
+</AtomWrapper>
+) };
+
+<Counter />
+
+## AtomWrapper
+
+The best component, You always going to work with this atom, this atom is a special of container or div. With CustomCSS you have a powerfull container
+Compatible with flex and grid and draggable container provide by Framer Motion
+
+```js
+<AtomWrapper gap="5px" draggable>
+  <AtomWrapper draggable backgroundColor="#07deff" padding="5px">
+    <AtomText>Default Text</AtomText>
+  </AtomWrapper>
+  <AtomWrapper
+    draggable
+    customCSS={(css) => css`
+      border: 1px solid #07deff;
+    `}
+    padding="5px"
+  >
+    <AtomText color="white">Default Text</AtomText>
+  </AtomWrapper>
+</AtomWrapper>
+```
+
+export const ExampleWrapper = () => {
+return (
+<AtomWrapper gap="5px" draggable>
+
+<AtomWrapper draggable backgroundColor="#07deff" padding="5px">
+  <AtomText>Default Text</AtomText>
+</AtomWrapper>
+<AtomWrapper draggable customCSS={(css)=> css`
+border:1px solid #07deff;
+`} padding="5px">
+  <AtomText color="white">Default Text</AtomText>
+</AtomWrapper>
+</AtomWrapper>
+) };
+
+<ExampleWrapper />
