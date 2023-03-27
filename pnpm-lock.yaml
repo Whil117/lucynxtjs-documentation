@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@types/node': 18.11.10
-  lucy-nxtjs: ^0.0.36
+  lucy-nxtjs: 0.0.41
   next: ^13.0.6
   nextra: latest
   nextra-theme-docs: latest
@@ -11,10 +11,10 @@ specifiers:
   typescript: ^4.9.3
 
 dependencies:
-  lucy-nxtjs: 0.0.36_@types+node@18.11.10
+  lucy-nxtjs: 0.0.41_nr6yo6v4xtwq2fpp5mauxototy
   next: 13.0.6_biqbaboplfbrettd7655fr4n2y
-  nextra: 2.2.19_6jx7hpii6hgsrmhxgqrmo3277u
-  nextra-theme-docs: 2.2.19_xjieybtjyjwyx5puqtvpxmncqm
+  nextra: 2.2.20_6jx7hpii6hgsrmhxgqrmo3277u
+  nextra-theme-docs: 2.2.20_y2m4zo3wzdppn55ez73bbnzkim
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -3369,10 +3369,12 @@ packages:
       yallist: 4.0.0
     dev: false
 
-  /lucy-nxtjs/0.0.36_@types+node@18.11.10:
-    resolution: {integrity: sha512-IfJnicPN+tO0FAibJt2iv5n9d6K8CweQa8AJ3jxqNTbNdO6iFAGQU1Hu9hcDYnJWhuVH0kzvE2+bWGHKJdZnUg==}
+  /lucy-nxtjs/0.0.41_nr6yo6v4xtwq2fpp5mauxototy:
+    resolution: {integrity: sha512-IGekEiQcurKLNPYwEG6eKjTlRN6aS4emZp76Cb+bIePRW6YzqCquqSFDSO+QG1IgCKtgWiX0RxVGqZIYV1r4Iw==}
     peerDependencies:
       '@types/node': 18.11.18
+      react: 18.2.0
+      react-dom: 18.2.0
     dependencies:
       '@apollo/client': 3.7.9_gdcq4dv6opitr3wbfwyjmanyra
       '@emotion/react': 11.10.6_kzbn2opkn2327fwg5yzwzya5o4
@@ -4194,11 +4196,11 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /nextra-theme-docs/2.2.19_xjieybtjyjwyx5puqtvpxmncqm:
-    resolution: {integrity: sha512-+5PcNgHwxwSAmQZlbV2cbjbvxj7CPYnN44OtWNxHQ8L3dzlw6fUyIJtyCUcGbDHpFC3sHmwYgB3OCWH8m4P35Q==}
+  /nextra-theme-docs/2.2.20_y2m4zo3wzdppn55ez73bbnzkim:
+    resolution: {integrity: sha512-YbDbpwvLCUnDvq9afP57Zu/fDFbSrsvx5MEZIhKRcrn/eCfo4yIwoMMhdRF0yntB5uTDc4MZ8jqJgb25g2v7QA==}
     peerDependencies:
       next: '>=9.5.3'
-      nextra: 2.2.19
+      nextra: 2.2.20
       react: '>=16.13.1'
       react-dom: '>=16.13.1'
     dependencies:
@@ -4213,15 +4215,15 @@ packages:
       next: 13.0.6_biqbaboplfbrettd7655fr4n2y
       next-seo: 5.14.1_6jx7hpii6hgsrmhxgqrmo3277u
       next-themes: 0.2.1_6jx7hpii6hgsrmhxgqrmo3277u
-      nextra: 2.2.19_6jx7hpii6hgsrmhxgqrmo3277u
+      nextra: 2.2.20_6jx7hpii6hgsrmhxgqrmo3277u
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       scroll-into-view-if-needed: 3.0.4
       zod: 3.20.2
     dev: false
 
-  /nextra/2.2.19_6jx7hpii6hgsrmhxgqrmo3277u:
-    resolution: {integrity: sha512-QmgbJvT1lfmFCM8n5gfGTA5p8efw20N/oZP9ojBhWhmatq/PwAp7VoSeTan6TT9Yspv6PmnrgpqKhYGzPSkFVw==}
+  /nextra/2.2.20_6jx7hpii6hgsrmhxgqrmo3277u:
+    resolution: {integrity: sha512-V5P5UHvA7GvISziJSEMVV9jCDBm1aMlez3XqKPzvr/aIrugfnIPBhGrFh2YjpXp5FspldgTS8lbZVf36Alonhg==}
     peerDependencies:
       next: '>=9.5.3'
       react: '>=16.13.1'
@@ -4250,6 +4252,7 @@ packages:
       title: 3.5.3
       unist-util-remove: 3.1.1
       unist-util-visit: 4.1.1
+      zod: 3.20.2
     transitivePeerDependencies:
       - supports-color
     dev: false

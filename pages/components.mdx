@@ -59,7 +59,8 @@ My favorite component, because has some improviments. When you have a background
 </AtomButton>
 ```
 
-import { AtomButton,AtomWrapper, AtomText } from "lucy-nxtjs";
+import { AtomButton,AtomWrapper, AtomText, AtomIcon, AtomImage,AtomLoader } from "lucy-nxtjs";
+import isDarkLight from "lucy-nxtjs/build/src/@utils/isDarkLight";
 
 export const Counter = () => {
 
@@ -173,3 +174,267 @@ border:1px solid #07deff;
 ) };
 
 <ExampleWrapper />
+
+## AtomIcon
+
+If you want to render a svg, you can use with a external url, This is great because you can chache the asset and improve the page
+
+You have more options as: color fill by default black, width, height. with a customCSS
+
+This Atom use swr library for fetching the icon and embed the svg inside a dangerouslySetInnerHTML with a AtomWrapper
+
+```js
+<AtomIcon
+  src="https://res.cloudinary.com/whil/image/upload/v1679173748/GITHUB_udwkxu.svg"
+  color="#0072FF"
+/>
+```
+
+export const ExampleIcons = () => {
+return (
+
+<AtomWrapper flexDirection="row" width="auto" justifyContent="flex-start" gap="10px">
+  <AtomIcon color="default" />
+  <AtomIcon
+    src="https://res.cloudinary.com/whil/image/upload/v1679173748/GITHUB_udwkxu.svg"
+    color="#0072FF"
+  />
+
+{" "}
+
+<AtomIcon
+  src="https://res.cloudinary.com/whil/image/upload/v1676009859/MOVE_y3ho0n.svg"
+  color="#0072FF"
+/>
+<AtomIcon
+  src="https://res.cloudinary.com/whil/image/upload/v1661923746/spotify_jomqes.svg"
+  color="default"
+/>
+<AtomIcon
+  src="https://res.cloudinary.com/whil/image/upload/v1676008336/CURSOR_m7mjkg.svg"
+  color="white"
+/>
+<AtomIcon
+  src="https://res.cloudinary.com/whil/image/upload/v1676009019/EDITYOR_e4pyzh.svg"
+  color="white"
+/>
+<AtomIcon
+  src="https://res.cloudinary.com/whil/image/upload/v1676009570/UPDATEE_mlumua.svg"
+  color="white"
+/>
+
+</AtomWrapper>
+
+)
+}
+
+<ExampleIcons />
+
+## AtomImage
+
+Typically a web page use images, using a external URL image. you can render a imagen with a lot of properties as: ObjectFit, width, Height, customCSS and more. This component has cache and improve the page
+
+```js
+<AtomImage src="https://picsum.photos/200/300" width="auto" />
+```
+
+export const ExampleImages = () => {
+return (
+
+<AtomWrapper
+  flexDirection="row"
+  width="auto"
+  justifyContent="flex-start"
+  gap="10px"
+>
+  <AtomImage
+    src="https://picsum.photos/200/300"
+    width="auto"
+/>
+
+</AtomWrapper>
+
+)
+}
+
+<ExampleImages />
+
+## AtomLoader
+
+It's neccessary use a loader when you are doing operations with your API. So This component works for you.
+
+```js
+  <AtomLoader type="small" isLoading colorLoad="white" />
+  <AtomLoader type="small" isLoading colorLoad="#0072FF" />
+  <AtomLoader type="small" isLoading colorLoad="#ef2323" />
+  <AtomLoader type="small" isLoading colorLoad="#82ef23" />
+  <AtomLoader type="small" isLoading colorLoad="#23d7ef" />
+  <AtomLoader type="small" isLoading colorLoad="#ef23d4" />
+  <AtomLoader type="small" isLoading colorLoad="#cadd23" />
+```
+
+export const ExampleLoader = () => {
+return (
+
+<AtomWrapper
+  flexDirection="column"
+  width="auto"
+  justifyContent="flex-start"
+  gap="10px"
+>
+<AtomText color="white">
+Type Small
+</AtomText>
+<AtomWrapper
+  flexDirection="row"
+  width="auto"
+  justifyContent="flex-start"
+  gap="10px"
+>
+
+  <AtomLoader type="small" isLoading colorLoad="white" />
+  <AtomLoader type="small" isLoading colorLoad="#0072FF" />
+  <AtomLoader type="small" isLoading colorLoad="#ef2323" />
+  <AtomLoader type="small" isLoading colorLoad="#82ef23" />
+  <AtomLoader type="small" isLoading colorLoad="#23d7ef" />
+  <AtomLoader type="small" isLoading colorLoad="#ef23d4" />
+  <AtomLoader type="small" isLoading colorLoad="#cadd23" />
+</AtomWrapper>
+
+<AtomText color="white">Type medium</AtomText>
+<AtomWrapper
+  flexDirection="row"
+  width="auto"
+  justifyContent="flex-start"
+  gap="10px"
+>
+  <AtomLoader type="medium" isLoading colorLoad="white" />
+  <AtomLoader type="medium" isLoading colorLoad="#0072FF" />
+  <AtomLoader type="medium" isLoading colorLoad="#ef2323" />
+  <AtomLoader type="medium" isLoading colorLoad="#82ef23" />
+  <AtomLoader type="medium" isLoading colorLoad="#23d7ef" />
+  <AtomLoader type="medium" isLoading colorLoad="#ef23d4" />
+  <AtomLoader type="medium" isLoading colorLoad="#cadd23" />
+</AtomWrapper>
+
+<AtomText color="white">Type large</AtomText>
+<AtomWrapper
+  flexDirection="row"
+  width="auto"
+  justifyContent="flex-start"
+  gap="10px"
+>
+
+  <AtomLoader type="large" isLoading colorLoad="white" />
+  <AtomLoader type="large" isLoading colorLoad="#0072FF" />
+  <AtomLoader type="large" isLoading colorLoad="#ef2323" />
+  <AtomLoader type="large" isLoading colorLoad="#82ef23" />
+  <AtomLoader type="large" isLoading colorLoad="#23d7ef" />
+  <AtomLoader type="large" isLoading colorLoad="#ef23d4" />
+  <AtomLoader type="large" isLoading colorLoad="#cadd23" />
+</AtomWrapper>
+
+</AtomWrapper>
+
+)
+}
+
+<ExampleLoader />
+
+import {useState} from "react"
+
+export const ExampleWithOthers = () => {
+
+const [state,setState] = useState({
+isShow:false,
+color:"#0072FF"
+})
+
+return (
+
+<AtomWrapper
+  flexDirection="column"
+  width="auto"
+  justifyContent="flex-start"
+  gap="10px"
+>
+ <AtomLoader type="fullscreen"   isLoading={state.isShow}     onClose={() => {
+          setState({
+            isShow: false,
+            color: "#0072FF",
+          });
+        }} colorLoad={state.color}/>
+<AtomText color="white">
+Type fullscreen
+</AtomText>
+<AtomWrapper
+  flexDirection="row"
+  width="auto"
+  justifyContent="flex-start"
+  gap="10px"
+>
+
+  <AtomButton backgroundColor="#ffffff" onClick={()=>{
+    setState({
+    isShow:true,
+    color:"#ffffff"
+    })
+  }}>
+  <AtomLoader type="small" isLoading colorLoad={isDarkLight("#ffffff")}/>
+  </AtomButton>
+  <AtomButton backgroundColor="#ef2323" onClick={()=>{
+    setState({
+    isShow:true,
+    color:"#ef2323"
+    })
+  }}>
+  <AtomLoader type="small" isLoading colorLoad={isDarkLight("#ef2323")} />
+  </AtomButton>
+    <AtomButton backgroundColor="#0072FF" onClick={()=>{
+    setState({
+    isShow:true,
+    color:"#0072FF"
+    })
+  }}>
+  <AtomLoader type="small" isLoading colorLoad={isDarkLight("#0072FF")} />
+  </AtomButton>
+     <AtomButton backgroundColor="#82ef23" onClick={()=>{
+    setState({
+    isShow:true,
+    color:"#82ef23"
+    })
+  }}>
+  <AtomLoader type="small" isLoading colorLoad={isDarkLight("#82ef23")} />
+  </AtomButton>
+      <AtomButton backgroundColor="#23d7ef" onClick={()=>{
+    setState({
+    isShow:true,
+    color:"#23d7ef"
+    })
+  }}>
+  <AtomLoader type="small" isLoading colorLoad={isDarkLight("#23d7ef")} />
+  </AtomButton>
+        <AtomButton backgroundColor="#ef23d4" onClick={()=>{
+    setState({
+    isShow:true,
+    color:"#ef23d4"
+    })
+  }}>
+  <AtomLoader type="small" isLoading colorLoad={isDarkLight("#ef23d4")} />
+  </AtomButton>
+        <AtomButton backgroundColor="#cadd23" onClick={()=>{
+    setState({
+    isShow:true,
+    color:"#cadd23"
+    })
+  }}>
+  <AtomLoader type="small" isLoading colorLoad={isDarkLight("#cadd23")} />
+  </AtomButton>
+</AtomWrapper>
+
+</AtomWrapper>
+
+)
+}
+
+<ExampleWithOthers />
