@@ -1,8 +1,9 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@emotion/react': ^11.10.6
   '@types/node': 18.11.10
-  lucy-nxtjs: 0.0.41
+  lucy-nxtjs: 0.0.43
   next: ^13.0.6
   nextra: latest
   nextra-theme-docs: latest
@@ -11,7 +12,8 @@ specifiers:
   typescript: ^4.9.3
 
 dependencies:
-  lucy-nxtjs: 0.0.41_nr6yo6v4xtwq2fpp5mauxototy
+  '@emotion/react': 11.10.6_react@18.2.0
+  lucy-nxtjs: 0.0.43_bqhagcjq3btz4bxnolbnscxvu4
   next: 13.0.6_biqbaboplfbrettd7655fr4n2y
   nextra: 2.2.20_6jx7hpii6hgsrmhxgqrmo3277u
   nextra-theme-docs: 2.2.20_y2m4zo3wzdppn55ez73bbnzkim
@@ -162,7 +164,7 @@ packages:
     resolution: {integrity: sha512-G/YwXTkv7Den9mXDO7AhLWkE3q+I92B+VqAE+dYG4NGPaHZGvt3G8Q0p9vmE+sq7rTGphUbAvmQ9YpbfMQGGlA==}
     dev: false
 
-  /@emotion/react/11.10.6_kzbn2opkn2327fwg5yzwzya5o4:
+  /@emotion/react/11.10.6_react@18.2.0:
     resolution: {integrity: sha512-6HT8jBmcSkfzO7mc+N1L9uwvOnlcGoix8Zn7srt+9ga0MjREo6lRpuVX0kzo6Jp6oTqDhREOFsygN6Ew4fEQbw==}
     peerDependencies:
       '@types/react': '*'
@@ -178,7 +180,6 @@ packages:
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.0_react@18.2.0
       '@emotion/utils': 1.2.0
       '@emotion/weak-memoize': 0.3.0
-      '@types/react': 18.0.26
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
     dev: false
@@ -210,7 +211,7 @@ packages:
       '@babel/runtime': 7.21.0
       '@emotion/babel-plugin': 11.10.6
       '@emotion/is-prop-valid': 1.2.0
-      '@emotion/react': 11.10.6_kzbn2opkn2327fwg5yzwzya5o4
+      '@emotion/react': 11.10.6_react@18.2.0
       '@emotion/serialize': 1.1.1
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.0_react@18.2.0
       '@emotion/utils': 1.2.0
@@ -3369,15 +3370,16 @@ packages:
       yallist: 4.0.0
     dev: false
 
-  /lucy-nxtjs/0.0.41_nr6yo6v4xtwq2fpp5mauxototy:
-    resolution: {integrity: sha512-IGekEiQcurKLNPYwEG6eKjTlRN6aS4emZp76Cb+bIePRW6YzqCquqSFDSO+QG1IgCKtgWiX0RxVGqZIYV1r4Iw==}
+  /lucy-nxtjs/0.0.43_bqhagcjq3btz4bxnolbnscxvu4:
+    resolution: {integrity: sha512-4m4RWTR50ONzdBnOZ+zWoU3xLntpsz3ezdgZ0vPYgZBhUSrhSbyidL4CH3y9OgkC3Bn1Xeb1UBW+bmC/3bU1Sw==}
     peerDependencies:
+      '@emotion/react': ^11.10.5
       '@types/node': 18.11.18
       react: 18.2.0
       react-dom: 18.2.0
     dependencies:
       '@apollo/client': 3.7.9_gdcq4dv6opitr3wbfwyjmanyra
-      '@emotion/react': 11.10.6_kzbn2opkn2327fwg5yzwzya5o4
+      '@emotion/react': 11.10.6_react@18.2.0
       '@emotion/styled': 11.10.6_qry7xzgsc55pr5ngbiorqn3fpa
       '@emotion/weak-memoize': 0.3.0
       '@next/font': 13.1.1

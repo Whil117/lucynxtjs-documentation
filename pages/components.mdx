@@ -438,3 +438,231 @@ Type fullscreen
 }
 
 <ExampleWithOthers />
+
+## AtomModal
+
+Sometimes you can show a special data or alert. so you can use AtomModal to show using only a state, and you can write a message or anything
+
+```js
+<AtomWrapper>
+  <AtomModal
+    isShow={show}
+    onCloseShow={() => {}}
+    customCSS={(css) => css`
+      background-color: #fff;
+      height: 217px;
+      width: 420px;
+      padding: 30px 20px;
+      gap: 10px;
+    `}
+  >
+    <AtomWrapper
+      height="auto"
+      customCSS={(css) => css`
+        flex: 1;
+        width: -webkit-fill-available;
+        justify-content: flex-start;
+        gap: 10px;
+      `}
+    >
+      <AtomText fontSize="16px" fontWeight="bold">
+        Error!
+      </AtomText>
+      <AtomWrapper
+        customCSS={(css) => css`
+          background-color: black;
+          height: 1px;
+        `}
+      >
+        {" "}
+      </AtomWrapper> <AtomText fontSize="12px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+        deserunt, ipsum eligendi debitis porro nobis suscipit tenetur
+        repellendus, rem reiciendis, quae distinctio quo quod quasi sapiente
+        error recusandae alias fuga!
+      </AtomText>
+      <AtomWrapper
+        flexDirection="row"
+        height="auto"
+        justifyContent="flex-end"
+        gap="20px"
+      >
+        <AtomButton
+          onClick={() => {
+            setShow(false);
+          }}
+        >
+          Cancel
+        </AtomButton>
+
+        <AtomButton
+          onClick={() => {
+            setShow(false);
+          }}
+          isFocus
+          backgroundColor="#ef2323"
+        >
+          Ok
+        </AtomButton>
+      </AtomWrapper>
+    </AtomWrapper>
+  </AtomModal>
+  <AtomButton
+    onClick={() => {
+      setShow(true);
+    }}
+  >
+    Click Me
+  </AtomButton>
+</AtomWrapper>
+```
+
+import { AtomModal } from "lucy-nxtjs";
+
+export const ExampleModal = () => {
+  const [show, setShow] = useState(false);
+  return (
+<AtomWrapper>
+  <AtomModal
+    isShow={show}
+    onCloseShow={() => {}}
+    customCSS={(css) => css`
+      background-color: #fff;
+      height: 217px;
+      width: 420px;
+      padding: 30px 20px;
+      gap: 10px;
+    `}
+  >
+    <AtomWrapper
+      height="auto"
+      customCSS={(css) => css`
+        flex: 1;
+        width: -webkit-fill-available;
+        justify-content: flex-start;
+        gap: 10px;
+      `}
+    >
+      <AtomText fontSize="16px" fontWeight="bold">
+        Error!
+      </AtomText>
+      <AtomWrapper
+        customCSS={(css) => css`
+          background-color: black;
+          height: 1px;
+        `}
+      >
+        {" "}
+      </AtomWrapper> <AtomText fontSize="12px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+        deserunt, ipsum eligendi debitis porro nobis suscipit tenetur
+        repellendus, rem reiciendis, quae distinctio quo quod quasi sapiente
+        error recusandae alias fuga!
+      </AtomText>
+      <AtomWrapper
+        flexDirection="row"
+        height="auto"
+        justifyContent="flex-end"
+        gap="20px"
+      >
+        <AtomButton
+          onClick={() => {
+            setShow(false);
+          }}
+        >
+          Cancel
+        </AtomButton>
+
+        <AtomButton
+          onClick={() => {
+            setShow(false);
+          }}
+          isFocus
+          backgroundColor="#ef2323"
+        >
+          Ok
+        </AtomButton>
+      </AtomWrapper>
+    </AtomWrapper>
+
+  </AtomModal>
+  <AtomButton
+    onClick={() => {
+      setShow(true);
+    }}
+  >
+    Click Me
+  </AtomButton>
+</AtomWrapper>
+);
+};
+
+<ExampleModal />
+
+## AtomInput
+
+Oh yeah, A web application needs a inputs, You have a lot of variants. for example:
+
+```js
+type HTMLInputTypeAttribute =
+  | "button"
+  | "checkbox"
+  | "color"
+  | "date"
+  | "datetime-local"
+  | "email"
+  | "file"
+  | "hidden"
+  | "image"
+  | "month"
+  | "number"
+  | "password"
+  | "radio"
+  | "range"
+  | "reset"
+  | "search"
+  | "submit"
+  | "tel"
+  | "text"
+  | "time"
+  | "url"
+  | "week"
+  | "select"
+  | "textarea";
+```
+
+Well You only needs indicate a type of AtomInput. All properties has support. And all input has a label and error, you have these properties for example
+
+1. CustomCSS
+   This properti modifi
+2. CustomCSSLabel
+3. CustomCSSError
+4. CustomCSSOption
+5. css
+
+```js
+<AtomInput
+  type="text"
+  label="Name"
+  labelColor="black"
+  labelBackground="white"
+  labelFontFamily="Inter"
+  labelFontSize="17px"
+  labelFontWeight="bold"
+  onError={() => "Name is require field"}
+  customCSSError={() => css`
+    /* You custom CSS Error*/
+  `}
+  customCSSLabel={() => css`
+    /* You custom CSS*/
+  `}
+  customCSS={(css) => css`
+    width: 100px;
+  `}
+  value={state}
+  isFocus
+  onChange={(event) => setstate(event.target.value)}
+/>
+```
+
+But You have a differents of customCSS,
