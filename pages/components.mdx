@@ -603,42 +603,244 @@ export const ExampleModal = () => {
 
 Oh yeah, A web application needs a inputs, You have a lot of variants. for example:
 
-```js
-type HTMLInputTypeAttribute =
-  | "button"
-  | "checkbox"
-  | "color"
-  | "date"
-  | "datetime-local"
-  | "email"
-  | "file"
-  | "hidden"
-  | "image"
-  | "month"
-  | "number"
-  | "password"
-  | "radio"
-  | "range"
-  | "reset"
-  | "search"
-  | "submit"
-  | "tel"
-  | "text"
-  | "time"
-  | "url"
-  | "week"
-  | "select"
-  | "textarea";
+```md
+"button"
+"checkbox"
+"color"
+"date"
+"datetime-local"
+"email"
+"file"
+"hidden"
+"image"
+"month"
+"number"
+"password"
+"radio"
+"range"
+"reset"
+"search"
+"submit"
+"tel"
+"text"
+"time"
+"url"
+"week"
+"select"
+"textarea";
 ```
 
-Well You only needs indicate a type of AtomInput. All properties has support. And all input has a label and error, you have these properties for example
+Exist a lot of input types, And includes special parameters for example:
 
-1. CustomCSS
-   This properti modifi
-2. CustomCSSLabel
-3. CustomCSSError
-4. CustomCSSOption
-5. css
+### CustomCSS
+
+You can edit css style of the Wrapper input, for example background, width, height.
+
+import { AtomInput } from "lucy-nxtjs";
+import { css } from "@emotion/react";
+
+export const ExampleInputText = () => {
+  return (
+    <AtomInput
+      type="text"
+      label="Name"
+      labelColor="black"
+      labelBackground="white"
+      labelFontFamily="Inter"
+      labelFontSize="12px"
+      labelFontWeight="bold"
+      customCSSError={(css) => css`
+        /* You custom CSS Error*/
+      `}
+      customCSSLabel={(css) => css`
+        /* You custom CSS*/
+      
+         font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+
+      `}
+      customCSS={(css) => css`
+
+      `}
+      css={() => css`
+       border:1px solid black;
+         color:white;
+      `}
+      isFocus
+    />
+
+);
+};
+
+<ExampleInputText />
+
+### CustomCSSLabel
+
+Edit the style of the label input.
+
+export const ExampleInputTextLabel = () => {
+  return (
+    <AtomInput
+      type="text"
+      label="StyleLabelInput"
+      labelColor="black"
+      labelBackground="white"
+      labelFontFamily="Inter"
+      labelFontSize="12px"
+      labelFontWeight="bold"
+      customCSSError={(css) => css`
+        /* You custom CSS Error*/
+      `}
+      customCSSLabel={(css) => css`
+        /* You custom CSS*/
+        background-color:red;
+         font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+
+      `}
+      customCSS={(css) => css`
+
+      `}
+      css={() => css`
+       border:1px solid black;
+         color:white;
+      `}
+      isFocus
+    />
+
+);
+};
+
+<ExampleInputTextLabel />
+
+### CustomCSSError
+
+When you are validating the input field
+
+export const ExampleInputTextError = () => {
+  return (
+    <AtomInput
+      type="text"
+      label="Name"
+      labelColor="black"
+      labelBackground="white"
+      labelFontFamily="Inter"
+      labelFontSize="12px"
+      labelFontWeight="bold"
+      onError={()=>"Name is a require field"}
+      customCSSError={(css) => css`
+        /* You custom CSS Error*/
+      `}
+      customCSSLabel={(css) => css`
+        /* You custom CSS*/
+         font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+
+      `}
+      customCSS={(css) => css`
+
+      `}
+      css={() => css`
+       border:1px solid black;
+         color:white;
+      `}
+      isFocus
+    />
+
+);
+};
+
+<ExampleInputTextError />
+
+### CustomCSSOption
+
+This works when you select a input select, If you dont selected a value, by default value is "DEFAULT", with the function options recive a array with the follow params such: id, label, value
+
+export const ExampleInputTextSelect = () => {
+  return (
+    <AtomInput
+      type="select"
+      label="Name"
+      labelColor="black"
+      labelBackground="white"
+      labelFontFamily="Inter"
+      labelFontSize="12px"
+      labelFontWeight="bold"
+      onError={()=>"Name is a require field"}
+      customCSSError={(css) => css`
+        /* You custom CSS Error*/
+      `}
+      customCSSLabel={(css) => css`
+        /* You custom CSS*/
+         font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+
+      `}
+      customCSS={(css) => css`
+
+      `}
+      value="DEFAULT"
+      options={()=>[
+
+        {
+          "id":2,
+          label:"Option 1",
+          value:"Optio"
+        }
+      ]}
+      css={() => css`
+       border:1px solid black;
+         color:white;
+      `}
+      isFocus
+    />
+
+);
+};
+
+<ExampleInputTextSelect />
+
+### css
+
+If don't like the style by default, you can edit this style with the function css
+
+export const ExampleInputTextCore = () => {
+  return (
+    <AtomInput
+      type="select"
+      label="Name"
+      labelColor="black"
+      labelBackground="white"
+      labelFontFamily="Inter"
+      labelFontSize="12px"
+      labelFontWeight="bold"
+      customCSSError={(css) => css`
+        /* You custom CSS Error*/
+      `}
+      customCSSLabel={(css) => css`
+        /* You custom CSS*/
+         font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+
+      `}
+      customCSS={(css) => css`
+
+      `}
+      value="DEFAULT"
+      options={()=>[
+
+        {
+          "id":2,
+          label:"Option 1",
+          value:"Optio"
+        }
+      ]}
+      css={() => css`
+      color:white;
+       background-color:#0072FF;
+      `}
+      isFocus
+    />
+
+);
+};
+
+<ExampleInputTextCore />
 
 ```js
 <AtomInput
