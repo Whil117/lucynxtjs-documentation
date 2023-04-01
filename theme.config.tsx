@@ -4,7 +4,7 @@ import { DocsThemeConfig } from "nextra-theme-docs";
 const config: DocsThemeConfig = {
   logo: (
     <AtomText color="white" fontWeight="bold" fontSize="20px">
-      Lucy
+      Lucy Nxtjs
     </AtomText>
   ),
 
@@ -16,7 +16,7 @@ const config: DocsThemeConfig = {
   // },
   // docsRepositoryBase: "https://github.com/shuding/nextra-docs-template",s
   footer: {
-    text: "Lucy Docs. By Whil",
+    text: "Lucy Nxtjs Docs. By Whil",
   },
 };
 
