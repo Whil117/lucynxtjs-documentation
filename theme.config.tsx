@@ -7,6 +7,7 @@ const config: DocsThemeConfig = {
       Lucy
     </AtomText>
   ),
+
   project: {
     link: "https://github.com/Whil117/lucy-nxtjs",
   },

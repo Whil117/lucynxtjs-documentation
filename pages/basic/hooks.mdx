@@ -1,0 +1,58 @@
+# Hooks
+
+Lucy Nxtjs has a lot of hooks if you need use it. Every hook has a goal different
+
+## UseTimer
+
+If you need a execute a event in determinate time. You can use with this params:
+
+- Callback
+  This function executes an event when this event has ended.
+- Miliseconds (Ms)
+  If you need the control of the interval time. you can send a ms param, by default is 1000
+
+- End event
+  What time do you want to end the progress event? by default is 3
+
+```js
+useTimer({
+  callback: () => alert("event"),
+  ms: 200,
+  end: 1,
+});
+```
+
+and this return a object with this params
+
+- timer: The current value start to end.
+- ms: Miliseconds by default is 1000
+- end: End param by default is 3
+- setTimer: a setter state number
+- load: Loading progress
+- setLoad: Setter the loading progress
+
+import { AtomButton,useTimer,AtomWrapper,AtomText } from "lucy-nxtjs";
+export const ExampleUseTimer = ()=> {
+   const {setTimer,timer} = useTimer({
+  callback: () => alert("event"),
+  ms: 200,
+})
+
+return (
+
+<AtomWrapper flexDirection="row" alignItems="center" gap="20px" justifyContent="flex-start">
+<AtomText color="white">Timer: {timer}</AtomText>
+<AtomButton
+  onClick={() => {
+    setTimer(0);
+  }}
+>
+  Event! 
+</AtomButton>
+
+</AtomWrapper>
+)
+
+}
+
+<ExampleUseTimer />

@@ -866,3 +866,72 @@ export const ExampleInputTextCore = () => {
   onChange={(event) => setstate(event.target.value)}
 />
 ```
+
+## AtomLink
+
+Exclusive for the framework Next.js, Sometimes you need apply styles to the link. but Next.js has a basically styles using styles inline. But if you want to add customCSS without styles inline you have the possibility.
+
+You have two properties, Link and href.
+
+### Link
+
+If you want to navigate inside your application, you should use property link
+
+### Href
+
+If you have a external url, you should use a href property.
+
+```js
+<AtomWrapper>
+  <AtomLink
+    link="#atomlink"
+    textDecoration="none"
+    customCSS={() => css`
+      color: #cadd23;
+      width: 100%;
+    `}
+  >
+    Click me
+  </AtomLink>
+  <AtomLink
+    href="https://www.linkedin.com/in/ivangarciawhil117/"
+    textDecoration="none"
+    customCSS={() => css`
+      color: #cadd23;
+      background-color: #0072ff;
+    `}
+  >
+    My Linkedin
+  </AtomLink>
+</AtomWrapper>
+```
+
+import { AtomLink } from "lucy-nxtjs";
+export const ExampleInputLink = () => {
+  return (
+    <AtomWrapper>
+      <AtomLink
+        link="#atomlink"
+        textDecoration="none"
+        customCSS={() => css`
+          color: #cadd23;
+          width: 100%;
+        `}
+      >
+        Click me
+      </AtomLink>
+      <AtomLink
+        href="https://www.linkedin.com/in/ivangarciawhil117/"
+        textDecoration="none"
+        customCSS={() => css`
+          color: #cadd23;
+          background-color: #0072ff;
+        `}
+      >
+        My Linkedin
+      </AtomLink>
+    </AtomWrapper>
+  );
+};
+
+<ExampleInputLink />

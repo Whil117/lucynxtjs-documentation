@@ -1,5 +1,9 @@
 {
-  "index": "Getting Started",
+  "index": {
+    "title": ".",
+    "type": "separator",
+    "display": "hidden"
+  },
   "basic": "Basic Features",
   "about": "About Lucy"
 }
