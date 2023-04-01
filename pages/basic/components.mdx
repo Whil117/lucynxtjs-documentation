@@ -59,8 +59,7 @@ My favorite component, because has some improviments. When you have a background
 </AtomButton>
 ```
 
-import { AtomButton,AtomWrapper, AtomText, AtomIcon, AtomImage,AtomLoader } from "lucy-nxtjs";
-import isDarkLight from "lucy-nxtjs/build/src/@utils/isDarkLight";
+import { AtomButton,AtomWrapper, AtomText, AtomIcon, AtomImage,AtomLoader ,isDarkLight, AtomForm} from "lucy-nxtjs";
 
 export const Counter = () => {
 
@@ -867,6 +866,146 @@ export const ExampleInputTextCore = () => {
 />
 ```
 
+## AtomForm
+
+This component is a wrapper for your forms, but with special funcionalities such: customCSS
+
+export const ExampleInputLinksss = () => {
+  return (
+    <AtomWrapper>
+      <AtomForm onSubmit={() => {}} noValidate>
+        <AtomInput placeholder="First Name" label="FIRST NAME" />
+        <AtomInput
+          type="checkbox"
+          label="INPUT CHECKBOX"
+          placeholder="Last name"
+        />
+        <AtomInput
+          type="checkbox"
+          label="INPUT CHECKBOX"
+          value={1}
+          placeholder="Last name"
+        />
+        <AtomInput
+          type="checkbox"
+          label="INPUT CHECKBOX"
+          placeholder="Last name"
+        />
+        <AtomInput
+          type="radio"
+          value={false}
+          label="INPUT RADIO"
+          placeholder="Last name"
+        />
+        <AtomInput
+          type="radio"
+          value={false}
+          label="INPUT RADIO"
+          placeholder="Last name"
+        />
+        <AtomInput
+          type="radio"
+          value={false}
+          id="hello2"
+          label="INPUT RADIO"
+          placeholder="Last name"
+          accentColor="green"
+        />
+        <AtomInput
+          type="radio"
+          value="RADIO 4"
+          label="INPUT RADIO"
+          id="hello"
+          accentColor="red"
+          placeholder="Last name"
+        />
+        <AtomInput
+          type="textarea"
+          label="INPUT TEXTAREA"
+          placeholder="Last name"
+        />
+        <AtomInput
+          type="select"
+          options={() => [
+            {
+              id: "df",
+              label: "optionone",
+              value: "optionone",
+            },
+            {
+              id: "male",
+              label: "option two",
+              value: "optiontwo",
+            },
+          ]}
+        />
+        <AtomInput type="submit" />
+      </AtomForm>
+    </AtomWrapper>
+  );
+};
+
+```js
+<AtomForm onSubmit={() => {}} noValidate>
+  <AtomInput placeholder="First Name" label="FIRST NAME" />
+  <AtomInput type="checkbox" label="INPUT CHECKBOX" placeholder="Last name" />
+  <AtomInput
+    type="checkbox"
+    label="INPUT CHECKBOX"
+    value={1}
+    placeholder="Last name"
+  />
+  <AtomInput type="checkbox" label="INPUT CHECKBOX" placeholder="Last name" />
+  <AtomInput
+    type="radio"
+    value={false}
+    label="INPUT RADIO"
+    placeholder="Last name"
+  />
+  <AtomInput
+    type="radio"
+    value={false}
+    label="INPUT RADIO"
+    placeholder="Last name"
+  />
+  <AtomInput
+    type="radio"
+    value={false}
+    id="hello2"
+    label="INPUT RADIO"
+    placeholder="Last name"
+    accentColor="green"
+  />
+  <AtomInput
+    type="radio"
+    value="RADIO 4"
+    label="INPUT RADIO"
+    id="hello"
+    accentColor="red"
+    placeholder="Last name"
+  />
+  <AtomInput type="textarea" label="INPUT TEXTAREA" placeholder="Last name" />
+  <AtomInput
+    type="select"
+    options={() => [
+      {
+        id: "df",
+        label: "optionone",
+        value: "optionone",
+      },
+      {
+        id: "male",
+        label: "option two",
+        value: "optiontwo",
+      },
+    ]}
+  />
+  <AtomInput type="submit" />
+</AtomForm>
+```
+
+<ExampleInputLinksss />
+
 ## AtomLink
 
 Exclusive for the framework Next.js, Sometimes you need apply styles to the link. but Next.js has a basically styles using styles inline. But if you want to add customCSS without styles inline you have the possibility.
@@ -909,29 +1048,83 @@ If you have a external url, you should use a href property.
 import { AtomLink } from "lucy-nxtjs";
 export const ExampleInputLink = () => {
   return (
-    <AtomWrapper>
+    <AtomWrapper gap="20px">
       <AtomLink
         link="#atomlink"
         textDecoration="none"
         customCSS={() => css`
-          color: #cadd23;
-          width: 100%;
+          color: white;
         `}
       >
-        Click me
+  Click Atom Link section
       </AtomLink>
       <AtomLink
         href="https://www.linkedin.com/in/ivangarciawhil117/"
         textDecoration="none"
         customCSS={() => css`
-          color: #cadd23;
-          background-color: #0072ff;
+          background-color: white;
+          padding: 10px;
+          display: flex;
+
+          align-items:center;
+          flex-direction: row;
+
+          gap:10px;
         `}
       >
-        My Linkedin
+        <AtomIcon
+          color="#0072ff"
+          src="https://res.cloudinary.com/whil/image/upload/v1680367025/app/lucy/images/linked_jjjyqi.svg"
+        />{" "}
+        Whil
       </AtomLink>
     </AtomWrapper>
-  );
+
+);
 };
 
 <ExampleInputLink />
+
+## AtomSeoPage
+
+This component is exclusive for Next.js framework, If you have a page and you needs create a metadata seo. This component is great for you.
+
+by default has:
+
+1. viewport with the content **width=device-width, initial-scale=1**
+2. Content-Type with **text/html;charset=UTF-8**
+3. X-UA-Compatible with **IE=7** and **ie=edge**
+
+You have a several options such:
+
+- title
+- website
+- description
+- keywords
+- icon
+- image
+- locale
+- json
+- jsonType
+
+```js
+<AtomSeoPage title="Main page" icon="https://picsum.photos/200/300" />
+```
+
+## AtomThemeScript
+
+Sometimes we need a personalitation theme for our application. AtomThemeScript is a wrapper that works for customthemes. I recommend put this component in your app.js.
+
+This is neccessary for your custom theme combined with css modules. I explain this topic [Here](/basic/theme)
+
+```js
+import { AtomThemeScript } from "lucy-nxtjs";
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <AtomThemeScript>
+      <Component {...pageProps} />
+    </AtomThemeScript>
+  );
+}
+```

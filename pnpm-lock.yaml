@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@emotion/react': ^11.10.6
   '@types/node': 18.11.10
-  lucy-nxtjs: 0.0.46
+  lucy-nxtjs: 0.0.47
   next: ^13.0.6
   nextra: latest
   nextra-theme-docs: latest
@@ -13,7 +13,7 @@ specifiers:
 
 dependencies:
   '@emotion/react': 11.10.6_react@18.2.0
-  lucy-nxtjs: 0.0.46_bqhagcjq3btz4bxnolbnscxvu4
+  lucy-nxtjs: 0.0.47_bqhagcjq3btz4bxnolbnscxvu4
   next: 13.0.6_biqbaboplfbrettd7655fr4n2y
   nextra: 2.3.0_6jx7hpii6hgsrmhxgqrmo3277u
   nextra-theme-docs: 2.3.0_mxcpdgf2bjmigi4s5unlzojryq
@@ -3370,8 +3370,8 @@ packages:
       yallist: 4.0.0
     dev: false
 
-  /lucy-nxtjs/0.0.46_bqhagcjq3btz4bxnolbnscxvu4:
-    resolution: {integrity: sha512-yIxlk4mFrldKcANnjQxkKFZpN7b16Jnot25PSQzeSJweBjgx8JrrgO3WlHEYSvOTtr9SFgOaBFvcswxl+ghDLQ==}
+  /lucy-nxtjs/0.0.47_bqhagcjq3btz4bxnolbnscxvu4:
+    resolution: {integrity: sha512-AZvkbBuDW8XFxswG0WfeSLWg2auAYwiQmSvlEjRIQDCHb1F5C2xnhYsEs1xYlHFy555OAL//CXBnTMo36SfIBg==}
     peerDependencies:
       '@emotion/react': ^11.10.5
       '@types/node': 18.11.18

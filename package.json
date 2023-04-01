@@ -19,7 +19,7 @@
   "homepage": "https://github.com/shuding/nextra-docs-template#readme",
   "dependencies": {
     "@emotion/react": "^11.10.6",
-    "lucy-nxtjs": "0.0.46",
+    "lucy-nxtjs": "0.0.47",
     "next": "^13.0.6",
     "nextra": "latest",
     "nextra-theme-docs": "latest",
