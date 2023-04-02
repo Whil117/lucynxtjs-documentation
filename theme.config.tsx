@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import { AtomIcon, AtomText } from "lucy-nxtjs";
 import { useRouter } from "next/router";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
@@ -9,7 +10,7 @@ const config: DocsThemeConfig = {
       fontWeight="bold"
       fontSize="20px"
       cursor="pointer"
-      customCSS={(css) => css`
+      customCSS={() => css`
         display: flex;
         gap: 10px;
       `}
