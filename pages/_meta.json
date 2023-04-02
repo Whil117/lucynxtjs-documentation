@@ -4,6 +4,9 @@
     "type": "separator",
     "display": "hidden"
   },
-  "basic": "Basic Features",
-  "about": "About Lucy"
+  "basic": {
+    "title": "Basic Features"
+  },
+  "about": "About Lucy",
+  "examples": "Examples"
 }

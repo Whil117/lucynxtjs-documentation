@@ -1,0 +1,378 @@
+# Utils
+
+Hehehe, Lucy has essential utils for your project.
+
+## isDarkLight
+
+Sometimes we have a colors in our buttons, texts and wrappers. but these colors change dynamically. so we need to decide in color text dark o light,
+
+we need to provide a color in HEX, RGB, RGBA. and custom params such color light or dark and this return a string
+
+```js
+import { isDarkLight, AtomWrapper, AtomText } from "lucy-nxtjs";
+
+isDarkLight("#1a1a1a", {
+  dark: "black",
+  light: "white",
+});
+```
+
+import { isDarkLight, AtomWrapper, AtomText, AtomInput,NumberWithCommas,createcCalendarCurrentMonth , createCalendarWithBeforeAndAfterMonth} from "lucy-nxtjs";
+
+import { AtomLink,AtomIcon,convertHexToRGB, convertRGBAToObj } from "lucy-nxtjs";
+import {css} from "@emotion/react"
+
+export const ExampleDynamicColorWhiteDark = () => {
+    const [colorState, setColorState] =useState("#ffd333");
+
+return (
+
+<AtomWrapper gap="20px" flexDirection="row" customCSS={(css)=>css`
+
+display:grid;
+grid-template-columns:1fr 1fr;
+` }>
+
+    <AtomInput label="Color Text function" type="color" height="auto" value={colorState} onChange={(event)=>{
+        setColorState(event.target.value)
+    }} />
+
+    <pre style={{
+        backgroundColor:`${convertHexToRGB(colorState).rgba}`,
+        color:isDarkLight(colorState)
+    }}>
+    {JSON.stringify(isDarkLight(colorState,{
+        dark:"The color text is dark",
+        light:"The color text is white"
+    }),null,2)}
+    </pre>
+
+    </AtomWrapper>
+
+);
+};
+
+<ExampleDynamicColorWhiteDark />
+
+```js
+<AtomWrapper gap="20px">
+  <AtomText
+    backgroundColor="#82ef23"
+    padding="10px"
+    color={isDarkLight("#82ef23", {
+      dark: "black",
+      light: "white",
+    })}
+  >
+    {isDarkLight("#82ef23", {
+      dark: "black",
+      light: "white",
+    })}
+  </AtomText>
+</AtomWrapper>
+```
+
+## Convert Hex to RGB
+
+If you want to convert a hexadecimal color to rgb, you can use this util. Recive a hexadecimal color and alphanumeric optional number by default is 1
+
+```js
+convertHexToRGB("#ffd333");
+```
+
+import {useState} from "react"
+
+export const Exampledddd = () => {
+    const [colorState, setColorState] =useState("#ffd333");
+
+return (
+
+<AtomWrapper gap="20px" flexDirection="row" customCSS={(css)=>css`
+
+display:grid;
+grid-template-columns:1fr 1fr;
+` }>
+
+    <AtomInput label="Color Text function" type="color" height="auto" value={colorState} onChange={(event)=>{
+        setColorState(event.target.value)
+    }} />
+
+
+
+    <pre style={{
+        backgroundColor:`${convertHexToRGB(colorState).rgba}`,
+        color:isDarkLight(colorState)
+    }}>
+    {JSON.stringify(convertHexToRGB(colorState),null,2)}
+    </pre>
+
+    </AtomWrapper>
+
+);
+};
+
+<Exampledddd />
+
+## Convert RGBA, RGB to Object
+
+In some cases, we need to convert rgb or rgba in object. This function resolve that problem
+
+```js
+convertRGBAToObj("rgba(10,213,7,1)");
+```
+
+export const ExampleObjects = () => {
+
+return (
+
+<AtomWrapper gap="20px">
+  <pre>{JSON.stringify(convertRGBAToObj("rgba(10,213,7,1)"), null, 2)}</pre>
+</AtomWrapper>
+
+);
+};
+
+<ExampleObjects />
+
+## Number With Commas
+
+If you have a quantity and you need represent in real quantity, you can use this function for convert normal number to number with commas,
+
+You need provide a number primitive, and you have optionals params as: error, prefix, suffix
+
+```js
+NumberWithCommas(12321);
+```
+
+export const ExampleNumber = () => {
+
+    const [quantityNumber, setQuantityNumber] = useState(16112001)
+    const [suffixText, setSuffixText] = useState("Dollars")
+    const [preffixText, setPreffixText] = useState("$")
+
+return (
+
+<AtomWrapper gap="20px">
+<AtomWrapper customCSS={(css)=>css`
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+`}>
+
+{" "}
+
+<AtomInput
+  type="number"
+  label="Quantity"
+  value={quantityNumber}
+  onChange={(event) => {
+    setQuantityNumber(event.target.value);
+  }}
+  css={() => css`
+    color: white;
+  `}
+/>
+<AtomInput
+  type="text"
+  label="Suffix"
+  value={suffixText}
+  onChange={(event) => {
+    setSuffixText(event.target.value);
+  }}
+  css={() => css`
+    color: white;
+  `}
+/>
+<AtomInput
+  type="text"
+  label="Preffix"
+  value={preffixText}
+  onChange={(event) => {
+    setPreffixText(event.target.value);
+  }}
+  css={() => css`
+    color: white;
+  `}
+/>
+</AtomWrapper>
+
+<pre>
+  {JSON.stringify(
+    NumberWithCommas(quantityNumber, {
+      prefix: `${preffixText} `,
+      suffix: ` ${suffixText}`,
+    }),
+    null,
+    2
+  )}
+</pre>
+
+</AtomWrapper>
+
+);
+};
+
+<ExampleNumber />
+
+## Calendar
+
+In a tipically project, we need a calendar. Lucy provides a calendar with those functions
+
+### Create Calendar CurrentMonth
+
+If you need the current month in a collection. We only need to provide a month, by default is the current month. and we have 0 to 11 options
+
+```js
+createcCalendarCurrentMonth({
+  month: new Date().getMonth(),
+});
+```
+
+export const ExampleCalendarCurrentMonth = () => {
+
+return (
+
+<AtomWrapper gap="20px">
+<AtomWrapper
+  customCSS={()=> css`
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+  `}
+>
+  {createcCalendarCurrentMonth({}).map((item) => {
+    return (
+      <AtomWrapper
+        customCSS={()=>css`
+          padding: 8px;
+        background-color: #fff;
+
+          ${item.isToday
+            ? css`
+             background-color: #0072FF;
+              `
+            : css`
+            background-color: #fff;
+              `}
+          ${!item.isMonth &&
+          css`
+            background-color: #fff;
+          `}
+        `}
+        height="120px"
+      >
+        <AtomText
+          fontSize="17px"
+          fontWeight="bold"
+          color={item.isToday ? isDarkLight("#0072FF") : "black"}
+        >
+          {item.countNumber}
+        </AtomText>
+        <AtomText
+         color={item.isToday ? isDarkLight("#0072FF") : "black"}
+        >
+          {item.date.toLocaleString("en", {
+            month: "long",
+            year: "numeric",
+          })}
+        </AtomText>
+      </AtomWrapper>
+    );
+
+})}
+
+</AtomWrapper>
+</AtomWrapper>
+
+);
+};
+
+<ExampleCalendarCurrentMonth />
+
+## Create Calendar With Before And After Month
+
+If your calendar needs a before days and next days of the next month. You can use it.
+
+export const ExampleCalendarCurrentMonthBeforeAfter = () => {
+
+    const [currentMonth, setCurrentMonth] = useState(new Date().toISOString().slice(0,10))
+
+return (
+
+<AtomWrapper gap="20px">
+
+<AtomInput
+  type="date"
+  height="auto"
+  value={currentMonth}
+  onChange={(event) => {
+    setCurrentMonth(event.target.value);
+  }}
+  customCSS={() => css`
+    height: auto;
+  `}
+  css={() => css`
+    color: white;
+    height: auto;
+    color-scheme: dark;
+  `}
+/>
+{new Date(currentMonth).toDateString()}
+
+<AtomWrapper
+  customCSS={()=> css`
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+  `}
+>
+  {createCalendarWithBeforeAndAfterMonth({
+    month:new Date(currentMonth).getMonth()
+}).map((item) => {
+return (
+
+<AtomWrapper
+customCSS={()=>css`
+padding: 8px;
+background-color: #fff;
+
+          ${item.isToday
+            ? css`
+             background-color: #0072FF;
+              `
+            : css`
+            background-color: #fff;
+              `}
+          ${!item.isMonth &&
+          css`
+            background-color: #fff;
+          `}
+        `}
+        height="120px"
+      >
+        <AtomText
+          fontSize="17px"
+          fontWeight="bold"
+          color={item.isToday ? isDarkLight("#0072FF") : "black"}
+        >
+          {item.countNumber}
+        </AtomText>
+        <AtomText
+         color={item.isToday ? isDarkLight("#0072FF") : "black"}
+        >
+          {item.date.toLocaleString("en", {
+            month: "long",
+            year: "numeric",
+          })}
+        </AtomText>
+      </AtomWrapper>
+    );
+
+})}
+
+</AtomWrapper>
+</AtomWrapper>
+
+);
+};
+
+<ExampleCalendarCurrentMonthBeforeAfter />
