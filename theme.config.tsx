@@ -82,8 +82,6 @@ const config: DocsThemeConfig = {
           content="https://res.cloudinary.com/whil/image/upload/v1680320485/app/lucy/images/with_texting_oyc8gx.png"
         />
         <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="300" />
-        <meta property="og:image:height" content="300" />
         <meta
           property="og:description"
           content={frontMatter.description || "The next site builder"}
