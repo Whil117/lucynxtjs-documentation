@@ -376,3 +376,211 @@ background-color: #fff;
 };
 
 <ExampleCalendarCurrentMonthBeforeAfter />
+
+## MatchRoute
+
+MatchRoute is a function that recives two params, the first param is a path that exist in your routes, the second param is a array of routes
+
+if you want to seo in your routes, you have a object with any params, and if you have a route dinamyc. you can use "/:pathdynamic"
+
+```js
+type RoutesArrayProps = {
+  path: string,
+  seo?: {
+    [key: string]: any,
+  },
+  element?: any,
+};
+type MatchRoute = {
+  path: string,
+  routes: RoutesArrayProps[],
+};
+```
+
+import { matchRoute } from "lucy-nxtjs";
+
+suppose that you have three routes, and you want know the route /login
+
+```js
+import { matchRoute } from "lucy-nxtjs";
+matchRoute({
+  path: "/login",
+  routes: [
+    {
+      path: "/login",
+      seo: {
+        title: "My Login Page",
+      },
+    },
+    {
+      path: "/feed",
+      seo: {
+        title: "My feed Page",
+      },
+    },
+    {
+      path: "/about/:id",
+      seo: {
+        title: "My about Page",
+      },
+    },
+  ],
+});
+```
+
+export const ExampleWithRoutes = () => {
+
+const [path,setPath] = useState("/login")
+return (
+
+<>
+<AtomInput type="select" options={()=> [
+  {
+    id:"login",
+    label:"Login",
+    value:"/login"
+  },
+    {
+    id:"feed",
+    label:"Feed",
+    value:"/feed"
+  },
+      {
+    id:"About",
+    label:"About",
+    value:"/about/myabout2321332"
+  }
+]}
+css={()=> css`
+color:white;
+
+option{
+color:black;
+}
+`}
+value={path}
+onChange={(event)=> setPath(event.target.value)}
+/>
+
+<pre>
+  {JSON.stringify(
+    matchRoute({
+      path: path,
+      routes: [
+        {
+          path: "/login",
+          seo: {
+            title: "My Login Page",
+          },
+        },
+        {
+          path: "/feed",
+          seo: {
+            title: "My feed Page",
+          },
+        },
+        {
+          path: "/about/:id",
+          seo: {
+            title: "My about Page",
+          },
+        },
+      ],
+    }),
+    null,
+    2
+  )}
+</pre>
+
+</>
+)
+}
+
+<ExampleWithRoutes />
+
+If you have questions, I have created a example using the library in this repository
+[Github](https://github.com/Whil117/lucy-examples-pages)
+
+## HtmlParse
+
+When you are working with a CMS or dinamyc blogs, you have a html in string. if you want to covert the html in object this function works for you,
+You only needs provide a string html
+
+```js
+import { htmlParse } from "lucy-nxtjs";
+htmlParse(`
+<div style="color:red;">
+<br/>
+  <h1>My parse HTML </h1>
+</div>
+ <h1>Main Title </h1>
+`);
+```
+
+the result is
+
+import { htmlParse} from "lucy-nxtjs";
+
+export const ExampleHTMLPARSE = ()=> {
+  return (
+    <pre>
+  {JSON.stringify(htmlParse(`
+<div style="color:red;">
+<br/>
+  <h1>My parse HTML </h1>
+</div>
+ <h1>Main Title </h1>
+`),null,2)}
+    </pre>
+  )
+
+}
+
+<ExampleHTMLPARSE />
+
+the result returns a tagName that is the tag html, if you have a html for example <b/> this is returned in content
+if your html parse has nesting html strings, this is returned in the children array. and supports attributes for example styles and returns in object
+
+## DateParse
+
+When you're working with dates is awful convert this dates for example in UTC or ISO. This functions works with new Date API javascript and toLocaleString that converts a date and time to a string by using the current or specified locale.
+
+we need give three params: date, locale, options
+
+```js
+import { dateParse } from "lucy-nxtjs";
+
+<AtomWrapper flexDirection="column">
+  <AtomText color="white">{dateParse("2023-04-08", "en-US")}</AtomText>
+  <AtomText color="white">
+    With Options day, month and year{" "}
+    {dateParse("2023-04-08", "en-US", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      timeZone: "UTC",
+    })}
+  </AtomText>
+</AtomWrapper>;
+```
+
+import { dateParse } from "lucy-nxtjs";
+
+export const ExamplesWithDateParse = () => {
+  return (
+    <AtomWrapper flexDirection="column">
+      <AtomText color="white">{dateParse("2023-04-08", "en-US")}</AtomText>
+      <AtomText color="white">
+        With Options day, month and year{" "}
+        {dateParse("2023-04-08", "en-US", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+          timeZone: "UTC",
+        })}
+      </AtomText>
+    </AtomWrapper>
+  );
+};
+
+<ExamplesWithDateParse />

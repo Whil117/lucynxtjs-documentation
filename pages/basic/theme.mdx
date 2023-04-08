@@ -1,0 +1,131 @@
+# Theming
+
+Usually you are working in a big o small project, and you need create a multiply dynamic styles, for example colors texts, backgrounds, borders, u order components. and persist the theme.
+
+you create a usestate and context provider or use a styled components or emotion css for create multiply themes.
+
+## What is the difference?
+
+The difference is the performance. When you are reloading or loading the page. you can see for one seconds the original theme and change quickly. that is awful and sometimes when the user has a basic computer. The computer is processing theme and the page is coverting slowing
+
+## What is the solution?
+
+Lucy nxtjs provides a solution with variables css, You can declare your own themes statics, or create dynamic themes and connect with your API backned.
+
+## Proccess
+
+### AtomThemeScript
+
+You need declare AtomThemeScript in your app.tsx or app.js. in this case I'm using next.js
+
+```js
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <AtomThemeScript>
+      <Component {...pageProps} />
+    </AtomThemeScript>
+  );
+}
+```
+
+Wait, Why?
+We need to create a store cookie and mount the script in the first render before load the DOM
+
+### AtomTheme
+
+Ok. So we need to declare your custom themes with the component AtomTheme, This process is optional, because you can declare in a file .css your static themes and import in your app without need declare in AtomTheme.
+
+You need provide a object with a key string and object value with your variables
+
+```js
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <AtomThemeScript>
+      <AtomTheme
+        themes={{
+          defaultTheme: {
+            "--background-color": "pink",
+            "--text-color": "#f7f8f8",
+            "--loader-color": "#f7f8f8",
+            "--icon-color": "#f7f8f8",
+            "--button-color": "#20b6b6",
+          },
+        }}
+      />
+      <Component {...pageProps} />
+    </AtomThemeScript>
+  );
+}
+```
+
+But you can use a global store as Jotai for use with dynamic themes
+
+```ts
+const cssVariablesDefault = {
+  "--background-color": "pink",
+  "--text-color": "#f7f8f8",
+  "--loader-color": "#f7f8f8",
+  "--icon-color": "#f7f8f8",
+  "--button-color": "#20b6b6",
+};
+
+export const ThemesAtom = atom({
+  defaultTheme: cssVariablesDefault,
+});
+
+export default function App({ Component, pageProps }: AppProps) {
+  const themesValue = useAtomValue(ThemesAtom);
+  return (
+    <AtomThemeScript>
+      <AtomTheme themes={themesValue} />
+      <Component {...pageProps} />
+    </AtomThemeScript>
+  );
+}
+```
+
+This is great because when next.js is going to render the app. Next.js going to load the css files or AtomTheme first
+
+### CreateTheme
+
+So, When you have your themes declareded. You need to create a theme instance, I recomend declare your themes key in the generic declaration types,
+If only your themes is dynamically so declare "< string >", and declare a default theme with the function defaultTheme params
+
+```ts
+const { setTheme } = createTheme<"dark" | "light" | string>({
+  defaultTheme: () => "dark",
+});
+```
+
+With this setTheme you can set the custom themes declareded in your app.js
+
+Yeah. So with the components you need declare the variable in the customCSS
+
+```js
+<AtomText
+  color="white"
+  customCSS={(css) => css`
+    color: var(--text-color);
+  `}
+>
+  Type large
+</AtomText>
+```
+
+### CreateThemeStyle
+
+If you need a create custom styles with others options you have the util createThemeStyles and works exactly that AtomTheme
+
+```js
+createThemeStyles({
+  defaultTheme: {
+    "--background-color": "pink",
+    "--text-color": "#f7f8f8",
+    "--loader-color": "#f7f8f8",
+    "--icon-color": "#f7f8f8",
+    "--button-color": "#20b6b6",
+  },
+});
+```
+
+and you have a good theme with performance for basic computers. If you want to test the theme. I have a example with the [playground](https://lucy-nxtjs.vercel.app/)
