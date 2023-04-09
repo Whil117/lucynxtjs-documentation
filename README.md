@@ -1,23 +1,32 @@
-# Nextra Docs Template 
+<img src="https://res.cloudinary.com/whil/image/upload/v1680320485/app/lucy/images/with_texting_oyc8gx.png" />
 
-This is a template for creating documentation with [Nextra](https://nextra.site).
+# Lucy Nxtjs
 
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
+Welcome to lucy-nxtjs Documentation!
 
-[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
+lucy-nxtjs is based on atomic design, Using Framer Motion, Typescript and Emotion. It's a great combination for create small and big projects.
 
-## Quick Start
+If you have any questions about anything related to lucy-nxtjs, You're always welcome to ask in my [Github](https://github.com/Whil117/lucy-nxtjs/issues)
 
-Click the button to clone this repository and deploy it on Vercel:
+### System Requirements
 
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
+- [Next.js](https://nextjs.org/)
+- [Emotion](https://emotion.sh/docs/introduction)
 
-## Local Development
+### Manual Setup
 
-First, run `pnpm i` to install the dependencies.
+Install lucy-nxtjs in your project with the next commands:
 
-Then, run `pnpm dev` to start the development server and visit localhost:3000.
+```sh
+yarn install  lucy-nxtjs
 
-## License
+npm i lucy-nxtjs
 
-This project is licensed under the MIT License.
+pnpm install lucy-nxtjs
+```
+
+If you want to clone the repository
+
+```sh
+git clone https://github.com/Whil117/lucynxtjs-documentation.git
+```
